@@ -1,0 +1,134 @@
+.carousel {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+
+.carousel::after {
+  content: attr(data-text);
+  position: absolute;
+  top: 103%;
+}
+
+.choose-year {
+  display: flex;
+  align-items: center;
+  column-gap: 20px;
+}
+
+.carousel-title {
+  font-size: 60px;
+  font-weight: 100;
+  letter-spacing: 2px;
+}
+
+.carousel-button {
+  background: none;
+  border-radius: 50%;
+  padding: 15px;
+  border: var(--border);
+  transition-duration: var(--transition-duration);
+
+  &:last-child {
+    transform: scaleX(-1);
+
+    &:active {
+      transform: scale(-1.15, 1.15);
+    }
+  }
+
+  &:hover {
+    opacity: 80%;
+  }
+
+  &:active {
+    transform: scale(1.15);
+  }
+}
+
+.button-image {
+  width: 38px;
+  height: 38px;
+}
+
+.carousel-viewport {
+  position: relative;
+  align-self: stretch;
+  overflow: hidden;
+  padding: 40px 0;
+
+  &::before,
+  &::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 250px;
+    z-index: 10;
+    pointer-events: none;
+  }
+
+  &::before {
+    left: 0;
+    background: linear-gradient(
+      to right,
+      #121212 0px,
+      #121212 200px,
+      transparent 250px
+    );
+  }
+
+  &::after {
+    right: 0;
+    background: linear-gradient(
+      to left,
+      #121212 0px,
+      #121212 210px,
+      transparent 250px
+    );
+  }
+}
+
+.carousel-track {
+  position: relative;
+  display: flex;
+  gap: 180px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+  will-change: transform;
+}
+
+.carousel-spacer {
+  flex: 0 0 auto;
+  pointer-events: none;
+}
+
+.carousel-card {
+  flex: 0 0 auto; /* Карточка берет ширину от картинки */
+  height: 350px; /* Фиксируем только высоту */
+  border-radius: 8px;
+  overflow: hidden;
+  cursor: pointer;
+
+  transition:
+    transform 0.4s cubic-bezier(0.25, 1, 0.5, 1),
+    opacity 0.4s ease;
+  transform: scale(0.6);
+  opacity: 0.7;
+}
+
+.carousel-card img {
+  height: 100%;
+  width: auto;
+  display: block;
+}
+
+.carousel-card.active {
+  transform: scale(1.2);
+  opacity: 1;
+  z-index: 2;
+}
