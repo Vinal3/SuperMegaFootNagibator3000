@@ -2,13 +2,13 @@ import { useRef, useState } from "react"
 import Carousel from "./components/Carousel"
 
 const images = [
-  "../public/images/2022.jpg",
-  "../public/images/2023.jpg",
-  "../public/images/2024.jpg",
-  "../public/images/2025.jpg",
-  "../public/images/2026.jpg",
-  "../public/images/2027.jpg",
-  "../public/images/2028.jpg",
+  "images/2022.jpg",
+  "images/2023.jpg",
+  "images/2024.jpg",
+  "images/2025.jpg",
+  "images/2026.jpg",
+  "images/2027.jpg",
+  "images/2028.jpg",
 ]
 
 function App() {
@@ -30,20 +30,20 @@ function App() {
   const geyLevelFromIndex = () => {
     switch (currentIndex) {
       case 0:
-        return '30'
+        return "30"
       case 1:
-        return '3600'
+        return "3600"
       case 2:
-        return '1700'
+        return "1700"
       case 3:
-        return '2800'
+        return "2300"
       case 4:
-        return '7666'
+        return "7666"
       case 5:
-        return '8900'
+        return "8900"
     }
 
-    return '9000'
+    return "9000"
   }
 
   return (
@@ -54,7 +54,7 @@ function App() {
           <li className="header-list-item">
             <img
               className="header-item-image"
-              src="../public/icons/hide.svg"
+              src="icons/hide.svg"
               alt="hide"
               width="35"
             />
@@ -62,7 +62,7 @@ function App() {
           <li className="header-list-item">
             <img
               className="header-item-image"
-              src="../public/icons/big.svg"
+              src="icons/big.svg"
               alt="big"
               width="35"
             />
@@ -70,7 +70,7 @@ function App() {
           <li className="header-list-item">
             <img
               className="header-item-image"
-              src="../public/icons/close.svg"
+              src="icons/close.svg"
               alt="close"
               width="38"
             />
@@ -86,7 +86,7 @@ function App() {
           >
             <img
               className="button-image"
-              src="../public/icons/left.svg"
+              src="icons/left.svg"
               alt=""
               width="38"
             />
@@ -99,7 +99,7 @@ function App() {
           >
             <img
               className="button-image"
-              src="../public/icons/left.svg"
+              src="icons/left.svg"
               alt=""
               width="38"
             />
@@ -111,6 +111,7 @@ function App() {
             setCurrentIndex={setCurrentIndex}
             images={images}
             viewportRef={viewportRef}
+            setItGayText={setItGayText}
           />
         </div>
       </section>

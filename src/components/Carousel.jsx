@@ -1,7 +1,8 @@
 import { useEffect, useRef, useState } from "react"
 
 const Carousel = (props) => {
-  const { currentIndex, setCurrentIndex, images, viewportRef } = props
+  const { currentIndex, setCurrentIndex, images, viewportRef, setItGayText } =
+    props
   const [offset, setOffset] = useState(0)
   const [leadingSpace, setLeadingSpace] = useState(0)
 
@@ -55,7 +56,10 @@ const Carousel = (props) => {
             key={index}
             ref={(el) => (itemsRef.current[index] = el)}
             className={`carousel-card ${isCenter ? "active" : ""}`}
-            onClick={() => setCurrentIndex(index)}
+            onClick={() => {
+              setCurrentIndex(index)
+              currentIndex !== index ? setItGayText("") : pass
+            }}
           >
             <img src={src} alt={`Slide ${index}`} />
           </li>
